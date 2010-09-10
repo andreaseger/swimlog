@@ -1,0 +1,13 @@
+%p
+  %b Title:
+  = @post.title
+%p
+  %b Schedule:
+  = @post.schedule
+%p
+  %b Description:
+  = @post.description
+
+= link_to 'Edit', edit_post_path(@post)
+\|
+= link_to 'Back', posts_path
