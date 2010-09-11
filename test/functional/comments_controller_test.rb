@@ -46,4 +46,6 @@ class CommentsControllerTest < ActionController::TestCase
 
     assert_redirected_to comments_path
   end
+
 end
+

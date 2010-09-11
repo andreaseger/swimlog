@@ -1,0 +1,130 @@
+// This import applies a global reset to any page that imports this stylesheet.
+@import "blueprint/reset"
+// To configure blueprint, edit the partials/base.sass file.
+@import partials/base.scss
+//@import partials/flash_error.sass
+// Import all the default blueprint modules so that we can access their mixins.
+@import blueprint
+// Import the non-default scaffolding module.
+@import "blueprint/scaffolding"
+@import compass/utilities
+
+// To generate css equivalent to the blueprint css but with your configuration applied, uncomment:
+// +blueprint
+
+//Recommended Blueprint configuration with scoping and semantic layout:
++blueprint-typography
++blueprint-scaffolding
++blueprint-utilities
++blueprint-debug
++blueprint-interaction
+
+body
+  :background-color $almost_black
+  #container
+    +container
+    :padding 20px 40px
+    :margin 0 auto
+    :margin-top 20px
+    :background-color $white
+    :border solid 1px black
+    +no-bullets
+    .controls
+      +horizontal-list
+
+    #header, #footer
+      +column(24)
+    #content
+      +column(20, true)
+      .hlisten
+        ul
+          +horizontal-list
+          :padding-left 0px
+          :margin-left 15px
+
+      //forms
+      .forminfo
+        :font
+          :size 10px
+          :color $light_grey
+        :margin-left 10px
+
+      #comments_area
+        +column(10)
+        h2
+          :margin-bottom 12px
+        :font-size 12px
+        :padding 0 20px
+        #comments
+          :background-color $silver
+          :padding 3px 20px
+          :margin 0
+          .comment
+            :border-bottom solid 1px #999
+            :border-left solid 1px #999
+            :padding-left 3px
+            :margin 15px 0
+
+      .title
+        :margin-bottom 0px
+        :padding-bottom 1px
+      .date
+        :color #000
+        :font-size 0.7em
+      .links
+        ul
+          +no-bullets
+          :padding-left 0px
+          :margin-left 15px
+        a:link
+          :color $maroon
+        a:visited
+          :color $forest_green
+
+    // FlashMessages
+    #flash_notice,
+    #flash_error,
+    #flash_alert
+      :padding 5px 8px
+      :margin 10px 0
+
+    #flash_notice
+      :background-color #CFC
+      :border solid 1px #6C6
+
+    #flash_error,
+    #flash_alert
+      :background-color #FCC
+      :border solid 1px #C66
+
+    .fieldWithErrors
+      :display inline
+
+    .error_messages
+      :width 400px
+      :border 2px solid #CF0000
+      :padding 0
+      :padding-bottom 12px
+      :margin-bottom 20px
+      :background-color #f0f0f0
+      :font
+        :size 12px
+      h2
+        :text-align left
+        :padding 5px 5px 5px 15px
+        :margin 0
+        :font
+          :weight bold
+          :size 12px
+        :background-color #c00
+        :color #fff
+      p
+        :margin 8px 10px
+      ul
+        :margin 0
+
+    //User Navigation
+    #user_nav
+      :float right
+      :font-size 12px
+

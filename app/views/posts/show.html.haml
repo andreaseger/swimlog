@@ -1,13 +1,34 @@
-%p
-  %b Title:
-  = @post.title
-%p
-  %b Schedule:
-  = @post.schedule
-%p
-  %b Description:
-  = @post.description
+-cache @post do
+  %h1.title
+    = @post.title
+  %ul
+    %li.date
+      = @post.created_at.strftime('%b %d, %Y at %H:%M')
+    %li
+      = @post.schedule
+    %li
+      = @post.description
 
-= link_to 'Edit', edit_post_path(@post)
-\|
-= link_to 'Back', posts_path
+  %ul.controls
+    %li= link_to "Edit", edit_post_path(@post)
+    %li= link_to "Destroy", @post, :confirm => 'Are you sure?', :method => :delete
+    %li= link_to "View All", posts_path
+
+  #comments_area
+    - unless @post.comments.empty?
+      %h2= pluralize(@post.comments.size, 'Comment')
+      %ul#comments
+        = render :partial => @post.comments
+    %br
+    = form_for Comment.new do |f|
+      %ul.form
+        %li
+          = f.hidden_field :post_id, :value => @post.id
+        %li
+          = f.label :authors_name, "Name"
+          = f.text_field :authors_name
+        %li
+          = f.text_area :body, :rows => 5, :cols => 40
+        %li
+          = f.submit "Add Comment"
+

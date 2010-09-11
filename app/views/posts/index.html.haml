@@ -1,23 +1,14 @@
-%h1 Listing posts
+%h1 Swimlog
 
-%table
-  %tr
-    %th Title
-    %th Schedule
-    %th Description
-    %th
-    %th
-    %th
+%ul
+  -@posts.each do |post|
+    %li
+      %b= post.title
+      .date= post.created_at.strftime('%b %d, %Y')
+      %ul.controls
+        %li= link_to 'Show', post
+        %li= link_to 'Edit', edit_post_path(post)
+        %li= link_to 'Destroy', post, :confirm => 'Are you sure?', :method => :delete
+  %li
+    = link_to 'New post', new_post_path
 
-  - @posts.each do |post|
-    %tr
-      %td= post.title
-      %td= post.schedule
-      %td= post.description
-      %td= link_to 'Show', post
-      %td= link_to 'Edit', edit_post_path(post)
-      %td= link_to 'Destroy', post, :confirm => 'Are you sure?', :method => :delete
-
-%br
-
-= link_to 'New post', new_post_path

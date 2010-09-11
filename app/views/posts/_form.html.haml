@@ -5,15 +5,19 @@
       %ul
         - @post.errors.full_messages.each do |msg|
           %li= msg
+  %ul
+    %li.label
+      = f.label :title
+    %li.field
+      = f.text_field :title
+    %li.label
+      = f.label :schedule
+    %li.field
+      = f.text_area :schedule, :rows => 5, :cols => 40
+    %li.label
+      = f.label :description
+    %li.field
+      = f.text_area :description, :rows => 5, :cols => 40
+    %li.actions
+      = f.submit 'Save'
 
-  .field
-    = f.label :title
-    = f.text_field :title
-  .field
-    = f.label :schedule
-    = f.text_area :schedule
-  .field
-    = f.label :description
-    = f.text_area :description
-  .actions
-    = f.submit 'Save'

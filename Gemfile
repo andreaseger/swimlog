@@ -9,7 +9,7 @@ gem 'sqlite3-ruby', :require => 'sqlite3'
 gem 'haml'
 gem 'haml-rails'
 gem 'jquery-rails'
-gem 'compass' '>= 0.10.5'
+gem 'compass'
 #gem 'will_paginate'
 
 

@@ -1,0 +1,9 @@
+%li.comment
+  %strong.name
+    = comment.authors_name
+  .date
+    = comment.created_at.strftime('%b %d, %Y at %H:%M')
+  %br
+  .content
+    =comment.body
+
