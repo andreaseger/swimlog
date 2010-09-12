@@ -4,7 +4,7 @@
     %li.date
       = @post.created_at.strftime('%b %d, %Y at %H:%M')
     %li
-      = @post.schedule
+      = simple_format (@post.schedule)
     %li
       = @post.description
 
@@ -23,7 +23,7 @@
     = form_for Comment.new do |f|
       %ul.form
         %li
-          = f.hidden_field :post_id, :value => @post.id
+          = hidden_field_tag(:post_id, @post.id)
         %li
           = f.label :authors_name, "Name"
           = f.text_field :authors_name

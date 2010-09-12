@@ -25,7 +25,7 @@ class PostsController < ApplicationController
   # GET /posts/new.xml
   def new
     @post = Post.new
-
+    8.times {@post.items.build}
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @post }
@@ -41,6 +41,7 @@ class PostsController < ApplicationController
   # POST /posts.xml
   def create
     @post = Post.new(params[:post])
+    @post.generate_schedule
 
     respond_to do |format|
       if @post.save
@@ -57,7 +58,7 @@ class PostsController < ApplicationController
   # PUT /posts/1.xml
   def update
     @post = Post.find(params[:id])
-
+    params[:post][:schedule] = @post.generate_schedule_hash(params[:post][:items_attributes].to_a)
     respond_to do |format|
       if @post.update_attributes(params[:post])
         format.html { redirect_to(@post, :notice => 'Post was successfully updated.') }
@@ -81,3 +82,4 @@ class PostsController < ApplicationController
     end
   end
 end
+

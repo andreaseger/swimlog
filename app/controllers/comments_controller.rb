@@ -1,56 +1,21 @@
 class CommentsController < ApplicationController
-  def new
-    @comment = Comment.new
-  end
 
   def create
-    @post = Post.find(params[:comment][:post_id])
-    @comment = @post.comments.new(params[:comment])
+    @comment =  Comment.new(params[:comment])
 
     respond_to do |format|
       if @comment.save
-        format.html { redirect_to(@post, :notice => 'Comment was successfully created.') }
+        format.html { redirect_to(@comment.post, :notice => 'Comment was successfully created.') }
         format.js
       else
-        format.html { redirect_to @post }
+        format.html { redirect_to @comment.post }
       end
     end
   end
 
-#  def index
-#    @comments = Comment.all
-#
-#    respond_to do |format|
-#      format.html # index.html.erb
-#      format.xml  { render :xml => @comments }
-#    end
-#  end
-#
-#
-#  def show
-#    @comment = Comment.find(params[:id])
-#
-#    respond_to do |format|
-#      format.html # show.html.erb
-#      format.xml  { render :xml => @comment }
-#    end
-#  end
-#
-#
-#  def new
-#    @comment = Comment.new
-#
-#    respond_to do |format|
-#      format.html # new.html.erb
-#      format.xml  { render :xml => @comment }
-#    end
-#  end
-#
 #  def edit
 #    @comment = Comment.find(params[:id])
 #  end
-#
-#
 #
 #
 #  def update

@@ -1,4 +1,6 @@
 Swimlog::Application.routes.draw do
+  resources :items
+
   resources :comments
 
   resources :posts#, :has_many => :comments

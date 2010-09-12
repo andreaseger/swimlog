@@ -8,16 +8,22 @@
   %ul
     %li.label
       = f.label :title
-    %li.field
+    %li.fields
       = f.text_field :title
-    %li.label
-      = f.label :schedule
-    %li.field
-      = f.text_area :schedule, :rows => 5, :cols => 40
+    %li
+      %ul#item_fields
+        = f.fields_for :items do |builder|
+          = render "item_fields", :f => builder
+    -#
+      %li.label
+        = f.label :schedule
+      %li.fields
+        = f.text_area :schedule, :rows => 5, :cols => 40
     %li.label
       = f.label :description
-    %li.field
+    %li.fields
       = f.text_area :description, :rows => 5, :cols => 40
+
     %li.actions
       = f.submit 'Save'
 

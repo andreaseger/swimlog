@@ -1,9 +1,17 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
 one:
-  authors_name: MyString
-  body: MyText
+  authors_name: MyString1
+  body: MyText1
+  post_id: 1
 
 two:
-  authors_name: MyString
-  body: MyText
+  authors_name: MyString2
+  body: MyText2
+  post_id: 1
+
+three:
+  authors_name: MyString3
+  body: MyText3
+  post_id: 1
+
