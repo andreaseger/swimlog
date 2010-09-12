@@ -1,6 +1,5 @@
 -cache @post do
-  %h1.title
-    = @post.title
+  -title @post.title
   %ul
     %li.date
       = @post.created_at.strftime('%b %d, %Y at %H:%M')
@@ -15,10 +14,11 @@
     %li= link_to "View All", posts_path
 
   #comments_area
-    - unless @post.comments.empty?
-      %h2= pluralize(@post.comments.size, 'Comment')
-      %ul#comments
-        = render :partial => @post.comments
+    #comments_count
+      - unless @post.comments.empty?
+        %h2= pluralize(@post.comments.size, 'Comment')
+    %ul#comments
+      = render :partial => @post.comments
     %br
     = form_for Comment.new do |f|
       %ul.form

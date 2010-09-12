@@ -1,4 +1,7 @@
 class CommentsController < ApplicationController
+  def new
+    @comment = Comment.new
+  end
 
   def create
     @post = Post.find(params[:comment][:post_id])
@@ -7,13 +10,12 @@ class CommentsController < ApplicationController
     respond_to do |format|
       if @comment.save
         format.html { redirect_to(@post, :notice => 'Comment was successfully created.') }
+        format.js
       else
         format.html { redirect_to @post }
       end
     end
   end
-
-
 
 #  def index
 #    @comments = Comment.all

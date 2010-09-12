@@ -430,7 +430,7 @@ form.inline p {
 
 /* line 8, ../../../../.rvm/gems/ruby-1.9.2-p0/gems/compass-0.10.5/frameworks/blueprint/stylesheets/blueprint/_debug.scss */
 .showgrid {
-  background: url('/images/grid.png?1284150325');
+  background: url('/images/grid.png?1284291160');
 }
 
 /* line 4, ../../../../.rvm/gems/ruby-1.9.2-p0/gems/compass-0.10.5/frameworks/blueprint/stylesheets/blueprint/_interaction.scss */
@@ -549,17 +549,40 @@ body #container .controls li:last-child, body #container .controls li.last {
   padding-right: 0px;
 }
 /* line 35, ../../app/stylesheets/screen.sass */
-body #container #header, body #container #footer {
+body #container #header {
+  display: inline;
+  float: left;
+  margin-right: 10px;
+  width: 950px;
+  position: relative;
+}
+/* line 139, ../../../../.rvm/gems/ruby-1.9.2-p0/gems/compass-0.10.5/frameworks/blueprint/stylesheets/blueprint/_grid.scss */
+* html body #container #header {
+  overflow-x: hidden;
+}
+/* line 38, ../../app/stylesheets/screen.sass */
+body #container #header h1 {
+  text-indent: -119988px;
+  overflow: hidden;
+  text-align: left;
+  background-image: url('/images/swimlog-v1.png?1281227372');
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  width: 777px;
+  height: 125px;
+}
+/* line 44, ../../app/stylesheets/screen.sass */
+body #container #footer {
   display: inline;
   float: left;
   margin-right: 10px;
   width: 950px;
 }
 /* line 139, ../../../../.rvm/gems/ruby-1.9.2-p0/gems/compass-0.10.5/frameworks/blueprint/stylesheets/blueprint/_grid.scss */
-* html body #container #header, * html body #container #footer {
+* html body #container #footer {
   overflow-x: hidden;
 }
-/* line 37, ../../app/stylesheets/screen.sass */
+/* line 46, ../../app/stylesheets/screen.sass */
 body #container #content {
   display: inline;
   float: left;
@@ -570,7 +593,7 @@ body #container #content {
 * html body #container #content {
   overflow-x: hidden;
 }
-/* line 40, ../../app/stylesheets/screen.sass */
+/* line 49, ../../app/stylesheets/screen.sass */
 body #container #content .hlisten ul {
   margin: 0;
   padding: 0;
@@ -600,13 +623,13 @@ body #container #content .hlisten ul li:first-child, body #container #content .h
 body #container #content .hlisten ul li:last-child, body #container #content .hlisten ul li.last {
   padding-right: 0px;
 }
-/* line 46, ../../app/stylesheets/screen.sass */
+/* line 55, ../../app/stylesheets/screen.sass */
 body #container #content .forminfo {
   font-size: 10px;
   font-color: #d8dcd6;
   margin-left: 10px;
 }
-/* line 52, ../../app/stylesheets/screen.sass */
+/* line 61, ../../app/stylesheets/screen.sass */
 body #container #content #comments_area {
   display: inline;
   float: left;
@@ -619,34 +642,34 @@ body #container #content #comments_area {
 * html body #container #content #comments_area {
   overflow-x: hidden;
 }
-/* line 54, ../../app/stylesheets/screen.sass */
+/* line 63, ../../app/stylesheets/screen.sass */
 body #container #content #comments_area h2 {
   margin-bottom: 12px;
 }
-/* line 58, ../../app/stylesheets/screen.sass */
+/* line 67, ../../app/stylesheets/screen.sass */
 body #container #content #comments_area #comments {
   background-color: #c5c9c7;
   padding: 3px 20px;
   margin: 0;
 }
-/* line 62, ../../app/stylesheets/screen.sass */
+/* line 71, ../../app/stylesheets/screen.sass */
 body #container #content #comments_area #comments .comment {
   border-bottom: solid 1px #999999;
   border-left: solid 1px #999999;
   padding-left: 3px;
   margin: 15px 0;
 }
-/* line 68, ../../app/stylesheets/screen.sass */
+/* line 77, ../../app/stylesheets/screen.sass */
 body #container #content .title {
   margin-bottom: 0px;
   padding-bottom: 1px;
 }
-/* line 71, ../../app/stylesheets/screen.sass */
+/* line 80, ../../app/stylesheets/screen.sass */
 body #container #content .date {
   color: black;
   font-size: 0.7em;
 }
-/* line 75, ../../app/stylesheets/screen.sass */
+/* line 84, ../../app/stylesheets/screen.sass */
 body #container #content .links ul {
   list-style: none;
   padding-left: 0px;
@@ -658,37 +681,37 @@ body #container #content .links ul li {
   list-style-type: none;
   margin-left: 0px;
 }
-/* line 79, ../../app/stylesheets/screen.sass */
+/* line 88, ../../app/stylesheets/screen.sass */
 body #container #content .links a:link {
   color: #650021;
 }
-/* line 81, ../../app/stylesheets/screen.sass */
+/* line 90, ../../app/stylesheets/screen.sass */
 body #container #content .links a:visited {
   color: #06470c;
 }
-/* line 85, ../../app/stylesheets/screen.sass */
+/* line 94, ../../app/stylesheets/screen.sass */
 body #container #flash_notice,
 body #container #flash_error,
 body #container #flash_alert {
   padding: 5px 8px;
   margin: 10px 0;
 }
-/* line 91, ../../app/stylesheets/screen.sass */
+/* line 100, ../../app/stylesheets/screen.sass */
 body #container #flash_notice {
   background-color: #ccffcc;
   border: solid 1px #66cc66;
 }
-/* line 95, ../../app/stylesheets/screen.sass */
+/* line 104, ../../app/stylesheets/screen.sass */
 body #container #flash_error,
 body #container #flash_alert {
   background-color: #ffcccc;
   border: solid 1px #cc6666;
 }
-/* line 100, ../../app/stylesheets/screen.sass */
+/* line 109, ../../app/stylesheets/screen.sass */
 body #container .fieldWithErrors {
   display: inline;
 }
-/* line 103, ../../app/stylesheets/screen.sass */
+/* line 112, ../../app/stylesheets/screen.sass */
 body #container .error_messages {
   width: 400px;
   border: 2px solid #cf0000;
@@ -698,7 +721,7 @@ body #container .error_messages {
   background-color: #f0f0f0;
   font-size: 12px;
 }
-/* line 112, ../../app/stylesheets/screen.sass */
+/* line 121, ../../app/stylesheets/screen.sass */
 body #container .error_messages h2 {
   text-align: left;
   padding: 5px 5px 5px 15px;
@@ -708,15 +731,15 @@ body #container .error_messages h2 {
   background-color: #cc0000;
   color: white;
 }
-/* line 121, ../../app/stylesheets/screen.sass */
+/* line 130, ../../app/stylesheets/screen.sass */
 body #container .error_messages p {
   margin: 8px 10px;
 }
-/* line 123, ../../app/stylesheets/screen.sass */
+/* line 132, ../../app/stylesheets/screen.sass */
 body #container .error_messages ul {
   margin: 0;
 }
-/* line 127, ../../app/stylesheets/screen.sass */
+/* line 136, ../../app/stylesheets/screen.sass */
 body #container #user_nav {
   float: right;
   font-size: 12px;

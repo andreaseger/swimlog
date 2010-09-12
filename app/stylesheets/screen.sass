@@ -32,7 +32,16 @@ body
     .controls
       +horizontal-list
 
-    #header, #footer
+    #header
+      +column(24)
+      :position relative
+      h1
+        +replace-text("swimlog-v1.png")
+        :width 777px
+        :height 125px
+      //h2
+        :margin-top 2px
+    #footer
       +column(24)
     #content
       +column(20, true)
