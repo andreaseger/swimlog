@@ -7,5 +7,4 @@ tmp/**/*
 *.pid
 .DS_Store
 Gemfile.lock
-config/database.yml
 
