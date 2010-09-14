@@ -40,8 +40,8 @@ class PostsController < ApplicationController
   # POST /posts
   # POST /posts.xml
   def create
+    params[:post][:schedule] = generate_schedule_hash(params[:post][:items_attributes].to_a)
     @post = Post.new(params[:post])
-    @post.generate_schedule
 
     respond_to do |format|
       if @post.save
@@ -58,7 +58,7 @@ class PostsController < ApplicationController
   # PUT /posts/1.xml
   def update
     @post = Post.find(params[:id])
-    params[:post][:schedule] = @post.generate_schedule_hash(params[:post][:items_attributes].to_a)
+    params[:post][:schedule] = generate_schedule_hash(params[:post][:items_attributes].to_a)
     respond_to do |format|
       if @post.update_attributes(params[:post])
         format.html { redirect_to(@post, :notice => 'Post was successfully updated.') }
@@ -80,6 +80,16 @@ class PostsController < ApplicationController
       format.html { redirect_to(posts_url) }
       format.xml  { head :ok }
     end
+  end
+
+  private
+  def generate_schedule_hash(items)
+    schedule = ""
+    items.each do |item|
+      i = item[1][:level]
+      schedule << "p(level-" << i << "). " << item[1][:text] << "\n\n"
+    end
+    schedule
   end
 end
 

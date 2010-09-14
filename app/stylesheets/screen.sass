@@ -41,8 +41,19 @@ body
         :height 125px
       //h2
         :margin-top 2px
+      //User Navigation
+      #user_nav
+        :float right
+
     #footer
       +column(24)
+      #user_nav
+        :padding-left 4em
+        :padding-top 1em
+        :border-top solid 1px #999
+
+    #user_nav
+      :font-size 12px
     #content
       +column(20, true)
       .hlisten
@@ -50,7 +61,6 @@ body
           +horizontal-list
           :padding-left 0px
           :margin-left 15px
-
       //forms
       .forminfo
         :font
@@ -66,8 +76,8 @@ body
         :padding 0 20px
         #comments
           :background-color $silver
-          :padding 3px 20px
-          :margin 0
+          :padding 0 20px
+          :margin 3px 0
           .comment
             :border-bottom solid 1px #999
             :border-left solid 1px #999
@@ -89,6 +99,36 @@ body
           :color $maroon
         a:visited
           :color $forest_green
+      #post
+        li
+          :margin-bottom 1.5em
+      #post_edit
+        :margin -3em 0 1em 35em
+      #schedule
+        :border-left solid 2px #999
+        p
+          :margin 0
+          :margin-left 1em
+        .level-1
+          :padding-left 1em
+        .level-2
+          :padding-left 2em
+        .level-3
+          :padding-left 3em
+        .level-4
+          :padding-left 4em
+        .level-5
+          :padding-left 5em
+        .level-6
+          :padding-left 6em
+        .level-7
+          :padding-left 7em
+        .level-8
+          :padding-left 8em
+        .level-9
+          :padding-left 9em
+        .level-10
+          :padding-left 10em
 
     // FlashMessages
     #flash_notice,
@@ -131,9 +171,4 @@ body
         :margin 8px 10px
       ul
         :margin 0
-
-    //User Navigation
-    #user_nav
-      :float right
-      :font-size 12px
 

@@ -10,6 +10,9 @@ gem 'haml'
 gem 'haml-rails'
 gem 'jquery-rails'
 gem 'compass'
+gem 'RedCloth', :require => 'redcloth'
+
+
 #gem 'will_paginate'
 
 

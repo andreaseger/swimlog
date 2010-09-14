@@ -1,17 +1,21 @@
 -cache @post do
   -title @post.title
-  %ul
-    %li.date
-      = @post.created_at.strftime('%b %d, %Y at %H:%M')
-    %li
-      = simple_format (@post.schedule)
-    %li
-      = @post.description
-
-  %ul.controls
+  %ul#post_edit.controls
     %li= link_to "Edit", edit_post_path(@post)
     %li= link_to "Destroy", @post, :confirm => 'Are you sure?', :method => :delete
     %li= link_to "View All", posts_path
+
+  %ul#post
+    %li.date
+      = @post.created_at.strftime('%b %d, %Y at %H:%M')
+      -unless @post.created_at == @post.updated_at
+        || last update on
+        = @post.updated_at.strftime('%b %d, %Y at %H:%M')
+    %li#schedule
+      = textilize(@post.schedule).html_safe
+      =# RedCloth.new(@post.schedule).to_html.html_safe     # macht das selbe wie textilize
+    %li
+      = @post.description
 
   #comments_area
     #comments_count
@@ -23,7 +27,8 @@
     = form_for Comment.new do |f|
       %ul.form
         %li
-          = hidden_field_tag(:post_id, @post.id)
+          = f.hidden_field :post_id, :value => @post.id
+          =# hidden_field_tag 'comment[post_id]', @post.id
         %li
           = f.label :authors_name, "Name"
           = f.text_field :authors_name

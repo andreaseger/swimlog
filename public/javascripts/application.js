@@ -14,10 +14,7 @@ jQuery.fn.submitWithAjax = function() {
   return this;
 };
 
-
 $(document).ready(function() {
   $("#new_comment").submitWithAjax();
-  $("#new_shout").submitWithAjax();
-  $('input.ui-datepicker').datepicker();
 });
 

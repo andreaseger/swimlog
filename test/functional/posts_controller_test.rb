@@ -46,4 +46,15 @@ class PostsControllerTest < ActionController::TestCase
 
     assert_redirected_to posts_path
   end
+
+  test "should generate schedule listing" do
+    @post = posts(:three)
+    items = {"items_attributes" => {"0" =>{"level" => "0", "text"=> "foo"}, "1" =>{"level" => "1", "text"=> "bar"}, "2" =>{"level" => "2", "text"=> "baz"} }}
+    assert_difference('Post.count') do
+      post :create, :post => @post.attributes.merge(items)
+    end
+    @saved = assigns(:post)
+    assert_equal "p(level-0). foo\n\np(level-1). bar\n\np(level-2). baz\n\n",@saved.schedule
+  end
 end
+

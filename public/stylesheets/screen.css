@@ -571,7 +571,11 @@ body #container #header h1 {
   width: 777px;
   height: 125px;
 }
-/* line 44, ../../app/stylesheets/screen.sass */
+/* line 45, ../../app/stylesheets/screen.sass */
+body #container #header #user_nav {
+  float: right;
+}
+/* line 48, ../../app/stylesheets/screen.sass */
 body #container #footer {
   display: inline;
   float: left;
@@ -582,7 +586,17 @@ body #container #footer {
 * html body #container #footer {
   overflow-x: hidden;
 }
-/* line 46, ../../app/stylesheets/screen.sass */
+/* line 50, ../../app/stylesheets/screen.sass */
+body #container #footer #user_nav {
+  padding-left: 4em;
+  padding-top: 1em;
+  border-top: solid 1px #999999;
+}
+/* line 55, ../../app/stylesheets/screen.sass */
+body #container #user_nav {
+  font-size: 12px;
+}
+/* line 57, ../../app/stylesheets/screen.sass */
 body #container #content {
   display: inline;
   float: left;
@@ -593,7 +607,7 @@ body #container #content {
 * html body #container #content {
   overflow-x: hidden;
 }
-/* line 49, ../../app/stylesheets/screen.sass */
+/* line 60, ../../app/stylesheets/screen.sass */
 body #container #content .hlisten ul {
   margin: 0;
   padding: 0;
@@ -623,13 +637,13 @@ body #container #content .hlisten ul li:first-child, body #container #content .h
 body #container #content .hlisten ul li:last-child, body #container #content .hlisten ul li.last {
   padding-right: 0px;
 }
-/* line 55, ../../app/stylesheets/screen.sass */
+/* line 65, ../../app/stylesheets/screen.sass */
 body #container #content .forminfo {
   font-size: 10px;
   font-color: #d8dcd6;
   margin-left: 10px;
 }
-/* line 61, ../../app/stylesheets/screen.sass */
+/* line 71, ../../app/stylesheets/screen.sass */
 body #container #content #comments_area {
   display: inline;
   float: left;
@@ -642,34 +656,34 @@ body #container #content #comments_area {
 * html body #container #content #comments_area {
   overflow-x: hidden;
 }
-/* line 63, ../../app/stylesheets/screen.sass */
+/* line 73, ../../app/stylesheets/screen.sass */
 body #container #content #comments_area h2 {
   margin-bottom: 12px;
 }
-/* line 67, ../../app/stylesheets/screen.sass */
+/* line 77, ../../app/stylesheets/screen.sass */
 body #container #content #comments_area #comments {
   background-color: #c5c9c7;
-  padding: 3px 20px;
-  margin: 0;
+  padding: 0 20px;
+  margin: 3px 0;
 }
-/* line 71, ../../app/stylesheets/screen.sass */
+/* line 81, ../../app/stylesheets/screen.sass */
 body #container #content #comments_area #comments .comment {
   border-bottom: solid 1px #999999;
   border-left: solid 1px #999999;
   padding-left: 3px;
   margin: 15px 0;
 }
-/* line 77, ../../app/stylesheets/screen.sass */
+/* line 87, ../../app/stylesheets/screen.sass */
 body #container #content .title {
   margin-bottom: 0px;
   padding-bottom: 1px;
 }
-/* line 80, ../../app/stylesheets/screen.sass */
+/* line 90, ../../app/stylesheets/screen.sass */
 body #container #content .date {
   color: black;
   font-size: 0.7em;
 }
-/* line 84, ../../app/stylesheets/screen.sass */
+/* line 94, ../../app/stylesheets/screen.sass */
 body #container #content .links ul {
   list-style: none;
   padding-left: 0px;
@@ -681,37 +695,94 @@ body #container #content .links ul li {
   list-style-type: none;
   margin-left: 0px;
 }
-/* line 88, ../../app/stylesheets/screen.sass */
+/* line 98, ../../app/stylesheets/screen.sass */
 body #container #content .links a:link {
   color: #650021;
 }
-/* line 90, ../../app/stylesheets/screen.sass */
+/* line 100, ../../app/stylesheets/screen.sass */
 body #container #content .links a:visited {
   color: #06470c;
 }
-/* line 94, ../../app/stylesheets/screen.sass */
+/* line 103, ../../app/stylesheets/screen.sass */
+body #container #content #post li {
+  margin-bottom: 1.5em;
+}
+/* line 105, ../../app/stylesheets/screen.sass */
+body #container #content #post_edit {
+  margin: -3em 0 1em 35em;
+}
+/* line 107, ../../app/stylesheets/screen.sass */
+body #container #content #schedule {
+  border-left: solid 2px #999999;
+}
+/* line 109, ../../app/stylesheets/screen.sass */
+body #container #content #schedule p {
+  margin: 0;
+  margin-left: 1em;
+}
+/* line 112, ../../app/stylesheets/screen.sass */
+body #container #content #schedule .level-1 {
+  padding-left: 1em;
+}
+/* line 114, ../../app/stylesheets/screen.sass */
+body #container #content #schedule .level-2 {
+  padding-left: 2em;
+}
+/* line 116, ../../app/stylesheets/screen.sass */
+body #container #content #schedule .level-3 {
+  padding-left: 3em;
+}
+/* line 118, ../../app/stylesheets/screen.sass */
+body #container #content #schedule .level-4 {
+  padding-left: 4em;
+}
+/* line 120, ../../app/stylesheets/screen.sass */
+body #container #content #schedule .level-5 {
+  padding-left: 5em;
+}
+/* line 122, ../../app/stylesheets/screen.sass */
+body #container #content #schedule .level-6 {
+  padding-left: 6em;
+}
+/* line 124, ../../app/stylesheets/screen.sass */
+body #container #content #schedule .level-7 {
+  padding-left: 7em;
+}
+/* line 126, ../../app/stylesheets/screen.sass */
+body #container #content #schedule .level-8 {
+  padding-left: 8em;
+}
+/* line 128, ../../app/stylesheets/screen.sass */
+body #container #content #schedule .level-9 {
+  padding-left: 9em;
+}
+/* line 130, ../../app/stylesheets/screen.sass */
+body #container #content #schedule .level-10 {
+  padding-left: 10em;
+}
+/* line 134, ../../app/stylesheets/screen.sass */
 body #container #flash_notice,
 body #container #flash_error,
 body #container #flash_alert {
   padding: 5px 8px;
   margin: 10px 0;
 }
-/* line 100, ../../app/stylesheets/screen.sass */
+/* line 140, ../../app/stylesheets/screen.sass */
 body #container #flash_notice {
   background-color: #ccffcc;
   border: solid 1px #66cc66;
 }
-/* line 104, ../../app/stylesheets/screen.sass */
+/* line 144, ../../app/stylesheets/screen.sass */
 body #container #flash_error,
 body #container #flash_alert {
   background-color: #ffcccc;
   border: solid 1px #cc6666;
 }
-/* line 109, ../../app/stylesheets/screen.sass */
+/* line 149, ../../app/stylesheets/screen.sass */
 body #container .fieldWithErrors {
   display: inline;
 }
-/* line 112, ../../app/stylesheets/screen.sass */
+/* line 152, ../../app/stylesheets/screen.sass */
 body #container .error_messages {
   width: 400px;
   border: 2px solid #cf0000;
@@ -721,7 +792,7 @@ body #container .error_messages {
   background-color: #f0f0f0;
   font-size: 12px;
 }
-/* line 121, ../../app/stylesheets/screen.sass */
+/* line 161, ../../app/stylesheets/screen.sass */
 body #container .error_messages h2 {
   text-align: left;
   padding: 5px 5px 5px 15px;
@@ -731,16 +802,11 @@ body #container .error_messages h2 {
   background-color: #cc0000;
   color: white;
 }
-/* line 130, ../../app/stylesheets/screen.sass */
+/* line 170, ../../app/stylesheets/screen.sass */
 body #container .error_messages p {
   margin: 8px 10px;
 }
-/* line 132, ../../app/stylesheets/screen.sass */
+/* line 172, ../../app/stylesheets/screen.sass */
 body #container .error_messages ul {
   margin: 0;
-}
-/* line 136, ../../app/stylesheets/screen.sass */
-body #container #user_nav {
-  float: right;
-  font-size: 12px;
 }
