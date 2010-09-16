@@ -1,15 +1,37 @@
 require 'test_helper'
 
 class PostTest < ActiveSupport::TestCase
-
-  test "should not save post w/o title" do
-    _post =  Post.new
-    assert !_post.save, "saving w/o title possible"
-
-    _post = Post.new(:title => "Foobar")
-    assert _post.save, "saving w title not possible"
+  setup do
+    @hubert = User.create!(:username => "hubert",  :roles_mask=>1, :password =>'foobar', :email=>'foo@bar.com') #admin
+    @anne = User.create!(:username => "anne",  :password =>'foobar', :email=>'foo@baar.com')     #user
   end
 
+  test "should not save post w/o title or items" do
+    _post =  Post.new(:user => @hubert)
+    assert !_post.save, "saving w/o title & items possible"
+
+    _post = Post.new(:user => @hubert, :title => "Foobar")
+    assert !_post.save, "saving w/o items possible"
+  end
+
+  test "should save post w/ title and items" do
+    _post = Post.new(:user => @hubert, :title => "Lorem", "items_attributes" => {"0"=>{"level"=>"0", "text"=>"lorem"}, "1"=>{"level"=>"4", "text"=>"ipsum"}})
+    assert _post.save, "saving w title and items not possible"
+  end
+
+  test "should not be able to create, update, destroy post as user" do
+    ability = Ability.new(@anne)
+    assert ability.cannot?(:create, Post.new)
+    assert ability.cannot?(:destroy, Post.new)
+    assert ability.cannot?(:update, Post.new)
+  end
+
+  test "should be able to create, update, destroy post as admin" do
+    ability = Ability.new(@hubert)
+    assert ability.can?(:create, Post.new)
+    assert ability.can?(:destroy, Post.new)
+    assert ability.can?(:update, Post.new)
+  end
 
   test "should destroy comments after destroying the post" do
     assert_difference("Comment.count", 2) do
@@ -38,7 +60,6 @@ class PostTest < ActiveSupport::TestCase
       @post.destroy
     end
   end
-
 
 
 end

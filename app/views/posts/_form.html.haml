@@ -1,29 +1,24 @@
 = form_for @post do |f|
   -if @post.errors.any?
     #errorExplanation
-      %h2= "#{pluralize(@post.errors.count, "error")} prohibited this post from being saved:"
+      %h2= t(:formerror, :pl_error => pluralize(@post.errors.count, t(:error)))
       %ul
         - @post.errors.full_messages.each do |msg|
           %li= msg
-  %ul
+  %ul.formList
     %li.label
-      = f.label :title
+      = f.label :title, t(:title)
     %li.fields
       = f.text_field :title
     %li
       %ul#item_fields
         = f.fields_for :items do |builder|
           = render "item_fields", :f => builder
-    -#
-      %li.label
-        = f.label :schedule
-      %li.fields
-        = f.text_area :schedule, :rows => 5, :cols => 40
     %li.label
-      = f.label :description
+      = f.label :description, t(:description)
     %li.fields
       = f.text_area :description, :rows => 5, :cols => 40
 
     %li.actions
-      = f.submit 'Save'
+      = f.submit t(:save)
 

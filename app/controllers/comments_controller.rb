@@ -1,7 +1,8 @@
 class CommentsController < ApplicationController
-
+  load_and_authorize_resource
+  #before_filter :authenticate_user!
   def create
-    @comment =  Comment.new(params[:comment])
+    @comment.user = current_user
 
     respond_to do |format|
       if @comment.save
@@ -12,6 +13,17 @@ class CommentsController < ApplicationController
       end
     end
   end
+
+  def destroy
+    @comment.destroy
+
+    respond_to do |format|
+      format.html { redirect_to(@comment.post) }
+      format.xml  { head :ok }
+    end
+  end
+
+
 
 #  def edit
 #    @comment = Comment.find(params[:id])
@@ -32,14 +44,5 @@ class CommentsController < ApplicationController
 #    end
 #  end
 #
-#  def destroy
-#    @comment = Comment.find(params[:id])
-#    @comment.destroy
-#
-#    respond_to do |format|
-#      format.html { redirect_to(comments_url) }
-#      format.xml  { head :ok }
-#    end
-#  end
 end
 

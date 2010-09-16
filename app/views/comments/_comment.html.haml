@@ -1,9 +1,13 @@
 %li.comment
-  %strong.name
-    = comment.authors_name
-  .date
-    = comment.created_at.strftime('%b %d, %Y at %H:%M')
+  %strong= comment.user.username
+  %em.date
+    = l comment.created_at, :format => :both
   %br
-  .content
+  %p.content
     =comment.body
+  %ul.controls
+  -# if can? :update, comment
+    %li= link_to t(:edit), edit_comment_path(comment)
+  - if can? :destroy, comment
+    %li= link_to t(:delete), comment, :confirm => t(:confirm), :method => :delete
 

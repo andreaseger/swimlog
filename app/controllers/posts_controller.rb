@@ -1,48 +1,37 @@
 class PostsController < ApplicationController
-  # GET /posts
-  # GET /posts.xml
+  load_and_authorize_resource
+  #before_filter :authenticate_user!, :except => [:index, :show]
+
   def index
     @posts = Post.all
 
     respond_to do |format|
-      format.html # index.html.erb
+      format.html # index.html.haml
       format.xml  { render :xml => @posts }
     end
   end
 
-  # GET /posts/1
-  # GET /posts/1.xml
   def show
-    @post = Post.find(params[:id])
-
     respond_to do |format|
-      format.html # show.html.erb
+      format.html # show.html.haml
       format.xml  { render :xml => @post }
     end
   end
 
-  # GET /posts/new
-  # GET /posts/new.xml
   def new
-    @post = Post.new
     8.times {@post.items.build}
     respond_to do |format|
-      format.html # new.html.erb
+      format.html # new.html.haml
       format.xml  { render :xml => @post }
     end
   end
 
-  # GET /posts/1/edit
   def edit
-    @post = Post.find(params[:id])
   end
 
-  # POST /posts
-  # POST /posts.xml
   def create
-    params[:post][:schedule] = generate_schedule_hash(params[:post][:items_attributes].to_a)
-    @post = Post.new(params[:post])
-
+    @post.user = current_user
+    @post.schedule = generate_schedule_hash(params[:post][:items_attributes].to_a)
     respond_to do |format|
       if @post.save
         format.html { redirect_to(@post, :notice => 'Post was successfully created.') }
@@ -54,10 +43,7 @@ class PostsController < ApplicationController
     end
   end
 
-  # PUT /posts/1
-  # PUT /posts/1.xml
   def update
-    @post = Post.find(params[:id])
     params[:post][:schedule] = generate_schedule_hash(params[:post][:items_attributes].to_a)
     respond_to do |format|
       if @post.update_attributes(params[:post])
@@ -70,10 +56,7 @@ class PostsController < ApplicationController
     end
   end
 
-  # DELETE /posts/1
-  # DELETE /posts/1.xml
   def destroy
-    @post = Post.find(params[:id])
     @post.destroy
 
     respond_to do |format|

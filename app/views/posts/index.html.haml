@@ -1,13 +1,15 @@
 -cache @posts do
-  %ul
+  %ul#posts
     -@posts.each do |post|
-      %li
-        %b= post.title
+      %li.post
+        %strong= post.title
         .date= post.created_at.strftime('%b %d, %Y')
         %ul.controls
-          %li= link_to 'Show', post
-          %li= link_to 'Edit', edit_post_path(post)
-          %li= link_to 'Destroy', post, :confirm => 'Are you sure?', :method => :delete
-    %li
-      = link_to 'New post', new_post_path
+          %li= link_to t(:show), post
+          - if can? :update, post
+            %li= link_to t(:edit), edit_post_path(post)
+          - if can? :destroy, post
+            %li= link_to t(:delete), post, :confirm => t(:confirm), :method => :delete
+    - if can? :create, Post
+      %li.new= link_to t(:npost), new_post_path
 

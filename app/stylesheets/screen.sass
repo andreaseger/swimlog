@@ -23,31 +23,46 @@ body
   :background-color $almost_black
   #container
     +container
-    :padding 20px 40px
+    :padding 20px 35px
     :margin 0 auto
     :margin-top 20px
     :background-color $white
     :border solid 1px black
-    +no-bullets
     .controls
       +horizontal-list
+    ul.formList
+      +no-bullets
+      :padding-left 20px
+      li
+        :margin-top 1px
+        :margin-bottom 2px
+      .item-level
+        :width 3em
+      .item-text
+        :width 50em
+
 
     #header
       +column(24)
       :position relative
       h1
-        +replace-text("swimlog-v1.png")
-        :width 777px
-        :height 125px
+        +replace-text("swimlog-v1.1.png")
+        :width 715px
+        :height 115px
       //h2
         :margin-top 2px
-      //User Navigation
+      #logo
+        +column(17)
       #user_nav
+        +column(6, true)
+        ul
+          :padding-left 10px
         :float right
 
     #footer
       +column(24)
       #user_nav
+        +no-bullets
         :padding-left 4em
         :padding-top 1em
         :border-top solid 1px #999
@@ -56,17 +71,10 @@ body
       :font-size 12px
     #content
       +column(20, true)
-      .hlisten
-        ul
-          +horizontal-list
-          :padding-left 0px
-          :margin-left 15px
-      //forms
-      .forminfo
-        :font
-          :size 10px
-          :color $light_grey
-        :margin-left 10px
+      ul.hlisten
+        +horizontal-list
+        :padding-left 0px
+        :margin-left 15px
 
       #comments_area
         +column(10)
@@ -75,6 +83,7 @@ body
         :font-size 12px
         :padding 0 20px
         #comments
+          +no-bullets
           :background-color $silver
           :padding 0 20px
           :margin 3px 0
@@ -83,11 +92,19 @@ body
             :border-left solid 1px #999
             :padding-left 3px
             :margin 15px 0
+      #posts
+        +no-bullets
+        .date,
+        .controls
+          :margin-left 1em
+        .new
+          :margin-top 2em
+          :margin-left -1em
 
       .title
         :margin-bottom 0px
         :padding-bottom 1px
-      .date
+      .date, .info
         :color #000
         :font-size 0.7em
       .links
@@ -99,7 +116,8 @@ body
           :color $maroon
         a:visited
           :color $forest_green
-      #post
+      ul#post
+        +no-bullets
         li
           :margin-bottom 1.5em
       #post_edit

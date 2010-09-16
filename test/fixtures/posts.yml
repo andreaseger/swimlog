@@ -2,17 +2,5 @@
 
 one:
   id: 1
-  title: MyString1
-  schedule: MyText1
-  description: MyText1
-
-two:
-  id: 2
-  title: MyString2
-  schedule: MyText2
-  description: MyText2
-three:
-  id: 3
-  title: items_test
-  description: testing
+  title: foobar
 

@@ -1,39 +1,48 @@
 -cache @post do
   -title @post.title
   %ul#post_edit.controls
-    %li= link_to "Edit", edit_post_path(@post)
-    %li= link_to "Destroy", @post, :confirm => 'Are you sure?', :method => :delete
-    %li= link_to "View All", posts_path
+    - if can? :update, @post
+      %li= link_to t(:edit), edit_post_path(@post)
+    - if can? :destroy, @post
+      %li= link_to t(:delete), @post, :confirm => t(:confirm), :method => :delete
+    %li= link_to t(:show_all), posts_path
 
   %ul#post
-    %li.date
-      = @post.created_at.strftime('%b %d, %Y at %H:%M')
+    %li.info
+      %strong
+        - if @post.user
+          = @post.user.username
+        - else
+          douchebag
+      = l @post.created_at, :format => :both
       -unless @post.created_at == @post.updated_at
-        || last update on
-        = @post.updated_at.strftime('%b %d, %Y at %H:%M')
+        = ", #{t(:last_updated)}"
+        = l @post.updated_at, :format => :both
     %li#schedule
       = textilize(@post.schedule).html_safe
-      =# RedCloth.new(@post.schedule).to_html.html_safe     # macht das selbe wie textilize
     %li
       = @post.description
 
   #comments_area
     #comments_count
       - unless @post.comments.empty?
-        %h2= pluralize(@post.comments.size, 'Comment')
+        %h2= pluralize(@post.comments.size, t(:comment))
     %ul#comments
       = render :partial => @post.comments
     %br
-    = form_for Comment.new do |f|
-      %ul.form
-        %li
-          = f.hidden_field :post_id, :value => @post.id
-          =# hidden_field_tag 'comment[post_id]', @post.id
-        %li
-          = f.label :authors_name, "Name"
-          = f.text_field :authors_name
-        %li
-          = f.text_area :body, :rows => 5, :cols => 40
-        %li
-          = f.submit "Add Comment"
+    - if can? :create, Comment
+      = form_for Comment.new do |f|
+        %ul.formList
+          %li
+            = f.hidden_field :post_id, :value => @post.id
+            =# hidden_field_tag 'comment[post_id]', @post.id
+          -#%li
+            = f.label :authors_name, "Name"
+            = f.text_field :authors_name
+          %li.label
+            = f.label :body, t(:ncomment)
+          %li
+            = f.text_area :body, :rows => 12, :cols => 32
+          %li
+            = f.submit t(:acomment)
 

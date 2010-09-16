@@ -11,8 +11,12 @@ gem 'haml-rails'
 gem 'jquery-rails'
 gem 'compass'
 gem 'RedCloth', :require => 'redcloth'
+gem 'devise'
+gem 'cancan'
 
 
+#gem 'hpricot'
+#gem 'ruby_parser'
 #gem 'will_paginate'
 
 
